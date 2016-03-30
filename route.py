@@ -1,2 +1,3 @@
 class Route(object):
-  def __init__(self, points = [])
+  def __init__(self):
+    self.stops = []
