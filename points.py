@@ -1,4 +1,5 @@
 import json
+import math
 points = []
 class Point(object):
 
@@ -19,3 +20,8 @@ class Point(object):
     with open(file) as data:
       parsed_points = json.load(data)
       return parsed_points
+
+  def get_distance(self, destination):
+    lat_difference = self.lat - destination.lat
+    lon_difference = self.lon - destination.lon
+    return math.sqrt(lat_difference**2 + lon_difference**2)
