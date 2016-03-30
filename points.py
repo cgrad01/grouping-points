@@ -1,9 +1,17 @@
+import json
 class Point(object):
+
   def __init__(self, lat, lon, id):
     self.lat = lat
     self.lon = lon
     self.id = id
+  @classmethod
+  def instantiate(cls,parsed_data):
 
-test = Point(33,21,"a1b2c3")
+  @classmethod
+  def parse_json(cls,file):
+    with open(file) as data:
+      parsed_points = json.load(data)
+      return parsed_points
 
-print test.id
+Point.parse_json("points.json")
