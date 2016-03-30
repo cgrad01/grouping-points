@@ -6,6 +6,7 @@ class Point(object):
     self.lat = lat
     self.lon = lon
     self.id = id
+
   @classmethod
   def instantiate(cls,parsed_data):
     for entry in parsed_data:
@@ -18,5 +19,3 @@ class Point(object):
     with open(file) as data:
       parsed_points = json.load(data)
       return parsed_points
-
-Point.instantiate(Point.parse_json("points.json"))
