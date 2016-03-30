@@ -1,4 +1,5 @@
 import json
+points = []
 class Point(object):
 
   def __init__(self, lat, lon, id):
@@ -7,6 +8,10 @@ class Point(object):
     self.id = id
   @classmethod
   def instantiate(cls,parsed_data):
+    for entry in parsed_data:
+      point = Point(entry["lat"], entry["lon"], entry["id"])
+      points.append(point)
+    return points
 
   @classmethod
   def parse_json(cls,file):
@@ -14,4 +19,4 @@ class Point(object):
       parsed_points = json.load(data)
       return parsed_points
 
-Point.parse_json("points.json")
+Point.instantiate(Point.parse_json("points.json"))
