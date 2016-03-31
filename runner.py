@@ -10,7 +10,13 @@ calcs = test.get_ref_point_distances()[0]
 for key in calcs:
   print key, calcs[key]
 
-# print "BREAK"
+print "BREAK"
+
+ref_min = min(calcs.values())
+for key in calcs:
+  if calcs[key] == ref_min:
+    print key, calcs[key]
+
 
 # for distance in test.calc_distances()[1]:
 #   print distance
