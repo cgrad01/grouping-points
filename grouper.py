@@ -17,15 +17,17 @@ class Grouper(object):
       ref_points.append(Point(random_lat, random_lon, "ref_point"))
     return ref_points
 
-  def calc_distances(self):
+  def get_ref_point_distances(self):
     results = []
     for ref_point in self.ref_points:
-      distances = []
-      for point in self.points:
-        distances.append(ref_point.get_distance(point))
-      distances.sort()
-      results.append(distances)
+      results.append(self.calc_distances(ref_point))
     return results
+
+  def calc_distances(self, ref_point):
+    distances = {}
+    for point in self.points:
+      distances[point.id] = ref_point.get_distance(point)
+    return distances
 
   def make_routes(self, num_of_routes):
     routes = []

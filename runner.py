@@ -5,16 +5,17 @@ from grouper import Grouper
 # points = Point.instantiate(Point.parse_json("points.json"))
 # route = Route()
 
-test = Grouper(3, "points.json")
-for distance in test.calc_distances()[0]:
-  print distance
+test = Grouper(2, "points.json")
+calcs = test.get_ref_point_distances()[0]
+for key in calcs:
+  print key, calcs[key]
 
-print "BREAK"
+# print "BREAK"
 
-for distance in test.calc_distances()[1]:
-  print distance
+# for distance in test.calc_distances()[1]:
+#   print distance
 
-print "BREAK"
+# print "BREAK"
 
-for distance in test.calc_distances()[2]:
-  print distance
+# for distance in test.calc_distances()[2]:
+#   print distance
