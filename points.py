@@ -1,6 +1,7 @@
 import json
 import math
 points = []
+pairs = []
 class Point(object):
 
   def __init__(self, lat, lon, id):
