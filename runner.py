@@ -1,6 +1,11 @@
 from points import Point
+from route import Route
 
 points = Point.instantiate(Point.parse_json("points.json"))
-a = points[0]
-b = points[1]
-print a.get_distance(b)
+route = Route()
+
+distances = []
+for point in points:
+  distances.append(route.center_point.get_distance(point))
+distances.sort()
+print distances
