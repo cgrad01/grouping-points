@@ -1,5 +1,6 @@
 import json
 import math
+
 points = []
 pairs = []
 class Point(object):
