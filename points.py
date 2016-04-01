@@ -9,6 +9,7 @@ class Point(object):
     self.lat = lat
     self.lon = lon
     self.id = id
+    self.dist_to_refs = {}
 
   @classmethod
   def instantiate(cls,parsed_data):
