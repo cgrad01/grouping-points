@@ -1,27 +1,12 @@
-from points import Point
-from route import Route
+from point import Point
 from grouper import Grouper
 
-# points = Point.instantiate(Point.parse_json("points.json"))
-# route = Route()
+test = Grouper(3, "points.json")
+test.pass_groups()
+test.assign_group_members()
 
-test = Grouper(2, "points.json")
-calcs = test.get_ref_point_distances()[0]
-for key in calcs:
-  print key, calcs[key]
+for group in test.groups:
+  print len(group.members)
 
-print "BREAK"
-
-ref_min = min(calcs.values())
-for key in calcs:
-  if calcs[key] == ref_min:
-    print key, calcs[key]
-
-
-# for distance in test.calc_distances()[1]:
-#   print distance
-
-# print "BREAK"
-
-# for distance in test.calc_distances()[2]:
-#   print distance
+for point in test.groups[0].members:
+  print point.id, point.dist_to_refs
