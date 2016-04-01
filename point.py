@@ -1,5 +1,4 @@
 import json
-import math
 from haversine import haversine
 
 points = []
@@ -26,3 +25,6 @@ class Point(object):
 
   def get_distance(self, destination):
     return haversine((self.lat, self.lon), (destination.lat, destination.lon))
+
+  def get_min_index(self):
+    return self.dist_to_refs.index(min(self.dist_to_refs))
