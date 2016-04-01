@@ -2,11 +2,7 @@ from point import Point
 from grouper import Grouper
 
 test = Grouper(3, "points.json")
-
-for group in test.groups:
-  for point in test.points:
-    point.dist_to_refs.append(point.get_distance(group.ref_point))
-
+test.pass_groups()
 test.assign_group_members()
 
 for group in test.groups:

@@ -14,6 +14,14 @@ class Grouper(object):
     for i in range(num_of_groups):
       self.groups.append(Group())
 
+  def pass_groups(self):
+    for group in self.groups:
+      self.get_dist_to_ref(group)
+
+  def get_dist_to_ref(self, group):
+    for point in self.points:
+        point.dist_to_refs.append(point.get_distance(group.ref_point))
+
   def assign_group_members(self):
     for point in self.points:
       self.groups[point.get_min_index()].add_member(point)
