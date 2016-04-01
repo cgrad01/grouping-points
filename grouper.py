@@ -1,4 +1,4 @@
-from points import Point
+from point import Point
 from group import Group
 import random
 

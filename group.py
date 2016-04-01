@@ -1,4 +1,4 @@
-from points import Point
+from point import Point
 import random
 
 class Group(object):
