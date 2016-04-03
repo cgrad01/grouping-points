@@ -46,5 +46,8 @@ class Grouper(object):
         self.update_dist_to_ref(group)
         self.assign_group_members()
         count +=1
-        self.adjust
-        print "adjusted " + str(count) + " times"
+        self.adjust()
+
+# FIGURE OUT HOW TO DO THIS
+  # def write_output(self):
+
