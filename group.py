@@ -14,3 +14,6 @@ class Group(object):
 
   def add_member(self, point):
     self.members.append(point)
+
+  def get_new_ref(self):
+    self.ref_point = self.make_ref_point()
