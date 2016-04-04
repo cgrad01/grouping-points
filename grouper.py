@@ -15,7 +15,7 @@ class Grouper(object):
     for i in range(num_of_groups):
       self.groups.append(Group())
 
-  def pass_groups(self):
+  def get_each_dist(self):
     for group in self.groups:
       self.get_dist_to_ref(group)
 
@@ -55,11 +55,7 @@ class Grouper(object):
       output[self.groups.index(group)] = [x.id for x in group.members]
     return output
 
-
   def write_groups(self):
     with open('groups.json', 'w') as outfile:
       json.dump(self.groups_to_dict(), outfile)
-
-# FIGURE OUT HOW TO DO THIS
-  # def write_output(self):
-
+    print "Open 'groups.json' for your results!"
