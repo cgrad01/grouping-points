@@ -28,6 +28,3 @@ class Point(object):
 
   def get_min_index(self):
     return self.dist_to_refs.index(min(self.dist_to_refs))
-
-  def to_json(self):
-    return self.id
