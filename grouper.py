@@ -22,7 +22,7 @@ class Grouper(object):
 
   def get_dist_to_ref(self, group):
     for point in self.points:
-        point.dist_to_refs.append(point.get_distance(group.ref_point))
+      point.dist_to_refs.append(point.get_distance(group.ref_point))
 
   def assign_group_members(self):
     for point in self.points:
