@@ -13,8 +13,11 @@ class Grouper(object):
     self.make_groups(self.num_of_groups)
 
   def make_groups(self, num_of_groups):
-    for i in range(num_of_groups):
-      self.groups.append(Group())
+    if num_of_groups > len(self.points) or num_of_groups < 1:
+      raise ValueError("Number of output groups cannot exceed the number of input points, or be less than 1. Please run the program again with different parameters.")
+    else:
+      for i in range(num_of_groups):
+        self.groups.append(Group())
 
   def get_each_dist(self):
     for group in self.groups:
@@ -40,16 +43,13 @@ class Grouper(object):
       point.dist_to_refs[self.get_group_index(group)] = point.get_distance(group.ref_point)
 
   def adjust(self):
-    if self.num_of_groups > len(self.points):
-      raise ValueError("Number of output groups cannot exceed the number of input points, please run the program again with different parameters.")
-    else:
-      for group in self.groups:
-        if len(group.members) == 0:
-          group.get_new_ref()
-          self.reset_groups()
-          self.update_dist_to_ref(group)
-          self.assign_group_members()
-          self.adjust()
+    for group in self.groups:
+      if len(group.members) == 0:
+        group.get_new_ref()
+        self.reset_groups()
+        self.update_dist_to_ref(group)
+        self.assign_group_members()
+        self.adjust()
 
   def groups_to_dict(self):
     output = {}
