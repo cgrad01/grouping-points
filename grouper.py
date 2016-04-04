@@ -2,6 +2,7 @@ from point import Point
 from group import Group
 import json
 import random
+# The Grouper class is responsible for assigning points to their various groups according to their distance from the group's reference point, adjusting the reference point placement if necesarry, and writing the output file.
 
 class Grouper(object):
   def __init__(self, num_of_groups, filename):

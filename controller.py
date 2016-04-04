@@ -1,5 +1,5 @@
 from grouper import Grouper
-
+# The Controller communicates information from the user, to the Grouper module, which then distributes the necesarry information to the subclasses. The Controller also validates user input is within certain constraints.
 class Controller(object):
 
   def get_group_amount(self):

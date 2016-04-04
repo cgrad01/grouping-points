@@ -1,5 +1,6 @@
 from point import Point
 import random
+# The Group class is initialized with a reference point, by which all other points are compared to. It is responsible for adding Group members (points), and creating reference points.
 
 class Group(object):
 

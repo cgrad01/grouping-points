@@ -1,6 +1,6 @@
 import json
 from haversine import haversine
-
+# The Point class is the object representation of the input file. It is responsible for creating instances of point, calculating its distance to other points, selecting the nearest reference point to itself, and parsing the input file.
 points = []
 class Point(object):
 
