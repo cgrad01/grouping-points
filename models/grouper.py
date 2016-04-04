@@ -56,6 +56,6 @@ class Grouper(object):
     return output
 
   def write_groups(self):
-    with open('groups.json', 'w') as outfile:
+    with open('output/groups.json', 'w') as outfile:
       json.dump(self.groups_to_dict(), outfile)
     print "Open 'groups.json' for your results!"
