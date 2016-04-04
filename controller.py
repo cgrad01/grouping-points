@@ -13,7 +13,16 @@ class Controller(object):
     return group_amount
 
   def get_filename(self):
-    return raw_input("Input full name of input file: ")
+    while True:
+      try:
+        filename = raw_input("Input full name of input file: ")
+        with open(filename) as data:
+          print "File found"
+      except IOError:
+        print "Sorry, we could not find that file, confirm it exists in this directory, and that you include the file extension when inputting."
+      else:
+        break
+    return filename
 
   def run_grouper(self, group_amount, filename):
     grouper = Grouper(group_amount, filename)
