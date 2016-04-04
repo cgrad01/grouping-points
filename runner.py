@@ -2,24 +2,24 @@ from point import Point
 from group import Group
 from grouper import Grouper
 
-# TODOs:
-# Implement command line functionality
-# gets(raw_input("Input the number of groups you would like: "))
+class Controller(object):
 
-test = Grouper(2, "points.json")
-test.pass_groups()
-test.assign_group_members()
-for group in test.groups:
-  print len(group.members)
-test.adjust()
+  def get_group_amount(self):
+    while True:
+      try:
+        group_amount = int(raw_input("Input number of desired groups: "))
+      except ValueError:
+        print "Please input a valid integer."
+      else:
+        break
+    return group_amount
 
-for group in test.groups:
-  print len(group.members)
+  def get_filename(self):
+    return raw_input("Input full name of input file: ")
 
-for group in test.groups:
-  for point in group.members:
-    print point.id, point.dist_to_refs
-  print "BREAK"
-
-# print test.groups[0].to_json()
-test.write_groups()
+controller = Controller()
+grouper = Grouper(controller.get_group_amount(), controller.get_filename())
+grouper.get_each_dist()
+grouper.assign_group_members()
+grouper.adjust()
+grouper.write_groups()
