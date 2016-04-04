@@ -1,5 +1,6 @@
 from point import Point
 from group import Group
+import json
 import random
 
 class Grouper(object):
@@ -47,6 +48,17 @@ class Grouper(object):
         self.assign_group_members()
         count +=1
         self.adjust()
+
+  def groups_to_dict(self):
+    output = {}
+    for group in self.groups:
+      output[self.groups.index(group)] = [x.id for x in group.members]
+    return output
+
+
+  def write_groups(self):
+    with open('groups.json', 'w') as outfile:
+      json.dump(self.groups_to_dict(), outfile)
 
 # FIGURE OUT HOW TO DO THIS
   # def write_output(self):
